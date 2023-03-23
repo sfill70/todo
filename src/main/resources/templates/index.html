@@ -66,24 +66,25 @@
                 </tr>
             </table>
         </div>
-        <br><br>
-        <button class="btn btn-success" onclick="window.open('/search?description=','_blank')">Search</button>
-        <br><br>
         <form action="/search" target="_blank">
-            <button>Поиск</button>
+            <button>Search</button>
         </form>
         <!--цикл страниц-->
-        <div class="row align-content-lg-center" style="padding-left: 20%; position: relative">
+        <div class="row align-content-lg-center" style="padding-left: 20%; position: relative"> <span  style="padding-right: 10%">Page:</span>
             <b class="btn-group" style="width: 10%"
                th:if="${countPage > 0}"
                th:each="pageNumber : ${pageNumbers}">
                 <a
-                   th:href="@{/(page=${pageNumber})}"
-                   th:text="${pageNumber}"
-                   th:attr="data-id=${pageNumber}"
+                        th:href="@{/(page=${pageNumber})}"
+                        th:text="${pageNumber}"
+                        th:attr="data-id=${pageNumber}"
                 ></a>
             </b>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 </div>
 
@@ -146,7 +147,7 @@
                         </li>
                         <li class="list-group-item" style="background: beige">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" value="Submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" value="Submit" class="btn btn-primary">Save task</button>
                         </li>
                     </ul>
                 </div>
@@ -157,10 +158,11 @@
 <script>
     $(function () {
         $(".btn").click(
-        // $("#del").click(
+            // $("#del").click(
             function () {
                 var description = $(this).attr('value');
                 var id = $(this).attr('data-id');
+                // you can use any of the variables
                 var uri = "/del/" + id;
                 let uri2 = "/dlt/?id=" + id
 
